@@ -104,13 +104,14 @@ checkflac stats <JOB_FILE> [--show-ok] [--show-pending] [--full-paths]
 | Status      | Meaning                                                                                               |
 | ----------- | --------------------------------------------------------------------------------------------------    |
 | OK          | File decoded successfully. MD5 matches (or no MD5 in header)                                          |
-| Bad         | File decoded but MD5 does **not** match → **likely corrupted audio **                                 |
-| Error       | File could not be decoded, is unreadable, or has an unsupported format. → **likely corrupted audio ** |
+| Bad         | File decoded but MD5 does **not** match → **likely corrupted audio**                                  |
+| Error       | File could not be decoded, is unreadable, or has an unsupported format. → **likely corrupted audio**  |
 | ToBeChecked | File has not been processed yet                                                                       |
 | Checking    | File is currently being checked                                                                       |
 
 * Any errors during decoding (e.g., malformed frames) mark a file as **Error**
 * MD5 mismatch files are **Bad**, even if the audio can technically play
+* Running the check again will try to re-check the errored out files again.
 
 ---
 
@@ -153,19 +154,6 @@ Job files are JSON files containing:
 * **Incremental saves**: Saves the job file after each file update to avoid losing progress on interruption.
 * **Progress display**: Uses [indicatif](https://docs.rs/indicatif/latest/indicatif/) for progress bars and spinners.
 * **Error handling**: Uses [anyhow](https://docs.rs/anyhow/latest/anyhow/) for detailed error reporting.
-
----
-
-## Dependencies
-
-* claxon – FLAC decoding
-* md5 – checksum verification
-* rayon – parallel processing
-* indicatif – progress bars
-* anyhow – error handling
-* serde + serde_json – job file serialization
-* colored – colored terminal output
-* walkdir – directory traversal
 
 ---
 
