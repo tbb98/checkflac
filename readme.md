@@ -169,7 +169,3 @@ Job files are JSON files containing:
 
 ---
 
-## License
-
-MIT License
-
