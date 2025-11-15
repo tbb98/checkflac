@@ -24,7 +24,7 @@ A **FLAC file integrity checker** for verifying large collections of FLAC audio 
 
 ## Installation
 
-Requires Rust toolchain.
+Requires [Rust toolchain](https://rustup.rs/)
 
 ```bash
 git clone https://github.com/tbb98/checkflac.git
@@ -94,7 +94,7 @@ checkflac stats <JOB_FILE> [--show-ok] [--show-pending] [--full-paths]
 
 ## How the FLAC check works
 
-1. **Decoding**: Each FLAC file is fully decoded using [claxon](https://docs.rs/claxon/latest/claxon/).
+1. **Decoding**: Each FLAC file is fully decoded using [claxon](https://docs.rs/claxon/latest/claxon/)
 2. **MD5 verification**:
 
    * The FLAC file header (STREAMINFO block) **may contain an MD5 checksum** of the raw audio data.
@@ -111,7 +111,7 @@ checkflac stats <JOB_FILE> [--show-ok] [--show-pending] [--full-paths]
 
 * Any errors during decoding (e.g., malformed frames) mark a file as **Error**
 * MD5 mismatch files are **Bad**, even if the audio can technically play
-* Running the check again will try to re-check the errored out files again.
+* Running the check again will try to re-check the errored out files again
 
 ---
 
