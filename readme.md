@@ -5,7 +5,7 @@ It seems to work. Use at your own risk. No responsibility accepted.
 
 # checkflac
 
-A **FLAC file integrity checker** for verifying large collections of FLAC audio files. It scans directories, creates job files, checks files in parallel, and reports results with detailed statistics.
+A **FLAC file integrity checker** for verifying large collections of FLAC audio files. It scans directories, creates job files, checks files in parallel, and reports results with detailed statistics. It will not modify your FLAC files.
 
 ---
 
