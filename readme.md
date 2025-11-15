@@ -101,13 +101,13 @@ checkflac stats <JOB_FILE> [--show-ok] [--show-pending] [--full-paths]
    * If present, the computed MD5 of the decoded audio is compared to the header.
 3. **Result classification**:
 
-| Status      | Meaning                                                                                               |
-| ----------- | --------------------------------------------------------------------------------------------------    |
-| OK          | File decoded successfully. MD5 matches (or no MD5 in header)                                          |
-| Bad         | File decoded but MD5 does **not** match → **likely corrupted audio**                                  |
-| Error       | File could not be decoded, is unreadable, or has an unsupported format. → **likely corrupted audio**  |
-| ToBeChecked | File has not been processed yet                                                                       |
-| Checking    | File is currently being checked                                                                       |
+| Status      | Meaning                                                                                                |
+| ----------- | -------------------------------------------------------------------------------------------------------|
+| OK          | File decoded successfully, MD5 matches (or no MD5 in header)                                           |
+| Bad         | File decoded but MD5 does **not** match → **likely corrupted audio**                                   |
+| Error       | File could not be decoded (→ **likely corrupted audio**), is unreadable, or has an unsupported format  |
+| ToBeChecked | File has not been processed yet                                                                        |
+| Checking    | File is currently being checked                                                                        |
 
 * Any errors during decoding (e.g., malformed frames) mark a file as **Error**
 * MD5 mismatch files are **Bad**, even if the audio can technically play
